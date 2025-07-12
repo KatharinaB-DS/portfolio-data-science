@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>📊 Predykcja ceny nieruchomości</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: #34495e;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 6px;
+            margin-bottom: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 8px;
+        }
+
+        input[type="submit"] {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 16px;
+            background-color: #2980b9;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #1f6391;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Formularz predykcji ceny nieruchomości</h1>
+
+    <form action="/predict_form" method="post">
+
+        <h3>Dane numeryczne</h3>
+        <label>BEDS: <input type="number" step="1" name="BEDS"></label>
+        <label>BATH: <input type="number" step="1" name="BATH"></label>
+        <label>PROPERTYSQFT: <input type="number" name="PROPERTYSQFT"></label>
+        <label>LATITUDE: <input type="number" step="0.0001" name="LATITUDE"></label>
+        <label>LONGITUDE: <input type="number" step="0.0001" name="LONGITUDE"></label>
+        <label>PRICE_PER_SQFT: <input type="number" name="PRICE_PER_SQFT"></label>
+        <label>LUXURY_HOME (0 lub 1): <input type="number" name="LUXURY_HOME"></label>
+
+        <h3>LOCALITY</h3>
+        <label><input type="checkbox" name="LOCALITY_Brooklyn" value="1">Brooklyn</label>
+        <label><input type="checkbox" name="LOCALITY_Flatbush" value="1">Flatbush</label>
+        <label><input type="checkbox" name="LOCALITY_Kings County" value="1">Kings County</label>
+        <label><input type="checkbox" name="LOCALITY_New York" value="1">New York</label>
+        <label><input type="checkbox" name="LOCALITY_New York County" value="1">New York County</label>
+        <label><input type="checkbox" name="LOCALITY_Queens" value="1">Queens</label>
+        <label><input type="checkbox" name="LOCALITY_Queens County" value="1">Queens County</label>
+        <label><input type="checkbox" name="LOCALITY_Richmond County" value="1">Richmond County</label>
+
+        <h3>TYPE</h3>
+        <label><input type="checkbox" name="TYPE_Coming Soon" value="1">Coming Soon</label>
+        <label><input type="checkbox" name="TYPE_Condo for sale" value="1">Condo</label>
+        <label><input type="checkbox" name="TYPE_Condop for sale" value="1">Condop</label>
+        <label><input type="checkbox" name="TYPE_For sale" value="1">For sale</label>
+        <label><input type="checkbox" name="TYPE_House for sale" value="1">House</label>
+        <label><input type="checkbox" name="TYPE_Land for sale" value="1">Land</label>
+        <label><input type="checkbox" name="TYPE_Mobile house for sale" value="1">Mobile house</label>
+        <label><input type="checkbox" name="TYPE_Multi-family home for sale" value="1">Multi-family</label>
+        <label><input type="checkbox" name="TYPE_Pending" value="1">Pending</label>
+        <label><input type="checkbox" name="TYPE_Townhouse for sale" value="1">Townhouse</label>
+
+        <h3>BOROUGH</h3>
+        <label><input type="checkbox" name="BOROUGH_Brooklyn" value="1">Brooklyn</label>
+        <label><input type="checkbox" name="BOROUGH_Manhattan" value="1">Manhattan</label>
+        <label><input type="checkbox" name="BOROUGH_Other" value="1">Other</label>
+        <label><input type="checkbox" name="BOROUGH_Queens" value="1">Queens</label>
+        <label><input type="checkbox" name="BOROUGH_Staten Island" value="1">Staten Island</label>
+
+        <h3>LOCATION CATEGORY</h3>
+        <label><input type="checkbox" name="LOCATION_CATEGORY_NorthEast" value="1">NorthEast</label>
+        <label><input type="checkbox" name="LOCATION_CATEGORY_Other" value="1">Other</label>
+        <label><input type="checkbox" name="LOCATION_CATEGORY_SouthWest" value="1">SouthWest</label>
+
+        <input type="submit" value="🔍 Przewiduj cenę">
+    </form>
+</body>
+</html>
